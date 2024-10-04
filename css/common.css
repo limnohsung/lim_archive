@@ -1,0 +1,383 @@
+@charset "utf-8";
+@import url(reset.css);
+
+:root{
+    --fontFamilyTime: "Times New Roman", Times, serif;
+
+    --mainColor01: #25E5E5;
+    --mainColorYellow: #F7DE03;
+    --mainColorLightRed: #FA9B95;
+    --mainColorDeepRed: #F83B3B;
+    
+    --mainColorgrayScale01: #F9F9F9;
+    --mainColorgrayScale02: #333;
+
+}
+
+.wrapper{
+    width: 100%;
+    /* min-width: 1240px; */
+}
+.wrapper .wrap{}
+/* header */
+.header{width: 100%; display: flex; justify-content: center; margin: 0 auto;}
+.header .headerArea{position: relative; width: 1240px; height: 480px; display: flex; align-items: center;}
+.header .headerArea::before{content: ''; display: block; position: absolute; top: 0; left: 60px; width: 180px; height: 2px; background-color: var(--mainColorYellow);} 
+.header .headerArea .headerCaption{padding-left: 60px;}
+.header .headerArea .headerCaption h1{font-size: 160px; font-family: var(--fontFamilyTime);}
+.header .headerArea .headerCaption h2{font-size: 60px; color: var(--mainColor01); font-family: var(--fontFamilyTime); letter-spacing: -3px;}
+.header .headerArea .headerCaption p{margin-top: 20px; line-height: 20px; font-size: 14px; font-weight: 500;}
+.header .headerArea .polygonArea{position: absolute; width: 100%; height: 100%;}
+.header .headerArea .polygonArea .polygon01{position: absolute; bottom: 20px; right: 310px; display: inline-block; width: 140px; height: 114px; background: url("../image/polygon-01.svg") no-repeat center / cover;}
+.header .headerArea .polygonArea .polygon02{position: absolute; top: 50px; right: 0; display: inline-block; width: 188px; height: 161px; background: url("../image/polygon-02.svg") no-repeat center / cover;}
+
+/* section common */
+.section{position: relative; width: 100%; margin: 40px 0 120px 0; display: flex; justify-content: center;}
+.section + .section{margin-top: 60px;}
+.section h4.tit{font-size: 58px; text-align: center;}
+
+/* tab */
+.tabArea{margin-top: 120px; display: flex; justify-content: center; transition: top 0.5s; box-sizing: border-box;}
+.tabArea.fixed{position: fixed; top: 0; left: 0; right: 0; background-color: var(--mainColorgrayScale01); width: 100%; margin: auto; padding: 24px 15px; z-index: 2; transition: top 0.5s;}
+.tabArea .tabBox{display: flex;}
+.tabArea .tabBox .tabLinks{position: relative; font-size: 18px; font-weight: bold; margin: 0 80px; padding: 0 10px 8px; cursor: pointer;}
+.tabArea .tabBox .tabLinks{display: inline-block; font-weight: bold; cursor: pointer;}
+.tabArea .tabBox .tabLinks::after{content: ""; position: absolute; left: 50%; bottom: 0; width: 0; height: 2px; background-color: var(--mainColorDeepRed); transition: all .2s;}
+.tabArea .tabBox .tabLinks.active::after,
+.tabArea .tabBox .tabLinks:hover::after{left: 0; width: 100%;}
+.sticky {position: fixed; top: 0; width: 100%;}
+
+/* tab01 */
+#tab01.section{}
+#tab01.section .cntMain{width: 1140px; margin: 0 auto;}
+#tab01.section .cntMain ul{display: flex; justify-content: space-between;}
+#tab01.section .cntMain ul li{}
+#tab01.section .cntMain ul li:nth-child(1){width: 440px;}
+#tab01.section .cntMain ul li:nth-child(1) img{width: 100%;}
+#tab01.section .cntMain ul li:nth-child(2){width: calc(100% - 440px); display: flex; flex-direction: column; justify-content: center; margin-left: 40px;}
+#tab01.section .cntMain ul li:nth-child(2) h3{font-size: 24px; font-weight: bold;}
+#tab01.section .cntMain ul li:nth-child(2) p{margin-top: 60px; font-size: 18px; line-height: 36px;}
+
+#tab01.section .mainSkill{position: relative; margin-top: 120px; text-align: center;}
+#tab01.section .mainSkill .skillItems{margin-top: 40px;}
+#tab01.section .mainSkill .skillItems div{margin-top: 10px; display: flex; justify-content: center;}
+#tab01.section .mainSkill .skillItems div .slash{position: relative; display: inline-block; padding: 11px 32px; font-size: 18px; font-weight: bold; margin-right: 10px; background-color: #fff; border: 1px solid #707070; border-radius: 2px; overflow: hidden; transition: 0.3s;}
+#tab01.section .mainSkill .skillItems div .slash::before{position: absolute; content: ""; top: 50%; left: 50%; z-index: -1; width: 180px; height: 180px; transform: translate(-50%, -50%) rotate(-45deg) scaleX(0); transition: 0.3s;}
+#tab01.section .mainSkill .skillItems div .slash:nth-of-type(1n)::before{background-color: var(--mainColor01);}
+#tab01.section .mainSkill .skillItems div .slash:nth-of-type(2n)::before{background-color: var(--mainColorLightRed);}
+#tab01.section .mainSkill .skillItems div .slash:nth-of-type(3n)::before{background-color: var(--mainColorYellow);}
+#tab01.section .mainSkill .skillItems div .slash:hover{background: transparent;}
+#tab01.section .mainSkill .skillItems div .slash:hover::before{}
+#tab01.section .mainSkill .skillItems div .slash:nth-of-type(1n):hover::before{transform: translate(-50%, -50%) rotate(-45deg) scaleX(1);}
+#tab01.section .mainSkill .skillItems div .slash:nth-of-type(2n):hover::before{transform: translate(-50%, -50%) rotate(45deg) scaleX(1);}
+#tab01.section .mainSkill .skillItems div .slash:nth-of-type(3n):hover::before{top: -60%; left: 10%; transform: translate(32%, 47%) rotate(226deg) scaleX(4);}
+#tab01.section .mainSkill em{position: absolute; width: 365px; height: 297px; bottom: 0; right: 0; background: url(../image/polygon-op-01.svg) no-repeat center / cover; z-index: -2; transition: right 0.3s;}
+
+/* tab02 */
+#tab02.section{}
+#tab02.section .cntResume{position: relative; width: 1140px; margin: 0 auto; display: flex;}
+#tab02.section .cntResume li{width: 50%;}
+#tab02.section .cntResume li h5{font-size: 24px; font-weight: bold;}
+#tab02.section .cntResume li h5 ~ h5{margin-top: 60px;}
+#tab02.section .cntResume li h5::before{content: ""; display: inline-block; width: 12px; height: 12px; background-color: var(--mainColorgrayScale02); vertical-align: 3px; margin-right: 10px; border-radius: 50%;}
+#tab02.section .cntResume li dl{margin-top: 10px;}
+#tab02.section .cntResume li dl dt{margin-top: 18px; font-size: 16px; font-weight: 500;padding-left: 18px;}
+#tab02.section .cntResume li dl dd{margin-top: 4px; padding-left: 22px; font-size: 16px; line-height: 20px;}
+#tab02.section .cntResume li.bgImg{width: 100%; position: absolute; bottom: 0; height: 645px; background: url("../image/polygon-op-02.svg") no-repeat left / contain; z-index: -1;}
+
+/* tab03 */
+#tab03.section{}
+#tab03.section .cntProjcet{position: relative; width: 1140px; margin: 0 auto;}
+#tab03.section .cntProjcet .swiper{width: 100%; margin-top: 40px; overflow: initial;}
+#tab03.section .cntProjcet .swiper .swiperProject{width: 100%; margin: 0 auto; overflow: hidden;}
+#tab03.section .cntProjcet .swiper .swiperProject .swiper-wrapper{}
+#tab03.section .cntProjcet .swiper .swiperProject .swiper-wrapper .swiper-slide{}
+#tab03.section .cntProjcet .swiper .swiperProject .swiper-wrapper .swiper-slide .itemArea{position: relative;}
+#tab03.section .cntProjcet .swiper .swiperProject .swiper-wrapper .swiper-slide .itemArea b{display: block; font-size: 60px; font-family: var(--fontFamilyTime); opacity: 0.3; text-align: center;}
+#tab03.section .cntProjcet .swiper .swiperProject .swiper-wrapper .swiper-slide .itemArea .itemCnt{position: relative; height: 260px; border-bottom: 1px solid #ccc; background-color: #fcfcfc;}
+#tab03.section .cntProjcet .swiper .swiperProject .swiper-wrapper .swiper-slide .itemArea .itemCnt::before{content: ""; position: absolute; width: 30px; height: 4px; top: 0; left: 20px;}
+#tab03.section .cntProjcet .swiper .swiperProject .swiper-wrapper .swiper-slide .itemArea .itemCnt p.click::before{position: absolute; top: -2px; left: 0; width: 20px; background-color: rgb(44, 65, 14);}
+#tab03.section .cntProjcet .swiper .swiperProject .swiper-wrapper .swiper-slide:nth-child(1n) .itemArea .itemCnt::before{background-color: var(--mainColorYellow);}
+#tab03.section .cntProjcet .swiper .swiperProject .swiper-wrapper .swiper-slide:nth-child(2n) .itemArea .itemCnt::before{background-color: var(--mainColor01);}
+#tab03.section .cntProjcet .swiper .swiperProject .swiper-wrapper .swiper-slide:nth-child(3n) .itemArea .itemCnt::before{background-color: var(--mainColorLightRed);}
+#tab03.section .cntProjcet .swiper .swiperProject .swiper-wrapper .swiper-slide .itemArea .itemCnt .imgBox{display: flex; align-items: center; width: 130px; height: 80px; min-height: 80px; margin: 0 auto; padding-top: 60px;}
+#tab03.section .cntProjcet .swiper .swiperProject .swiper-wrapper .swiper-slide .itemArea .itemCnt .imgBox img{width: 100%;}
+#tab03.section .cntProjcet .swiper .swiperProject .swiper-wrapper .swiper-slide .itemArea .itemCnt p{font-size: 16px; margin-top: 20px; text-align: center;}
+
+#tab03.section .cntProjcet .swiper .swiperProject .swiper-wrapper .swiper-slide .itemArea .clickHover{position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.7);display: flex; justify-content: center; align-items: center; opacity: 0; transition: all 0.3s; cursor: pointer;}
+#tab03.section .cntProjcet .swiper .swiperProject .swiper-wrapper .swiper-slide .itemArea .clickHover:hover{opacity: 1;}
+#tab03.section .cntProjcet .swiper .swiperProject .swiper-wrapper .swiper-slide .itemArea .clickHover p{position: relative; font-size: 24px; font-weight: bold; font-family: var(--fontFamilyTime); color: #fff;}
+#tab03.section .cntProjcet .swiper .swiperProject .swiper-wrapper .swiper-slide .itemArea .clickHover p::before{content: ""; position: absolute; top: -5px; left: 0; width: 15px; height: 3px;}
+#tab03.section .cntProjcet .swiper .swiperProject .swiper-wrapper .swiper-slide:nth-child(1n) .itemArea .clickHover p::before{background-color: var(--mainColorYellow);}
+#tab03.section .cntProjcet .swiper .swiperProject .swiper-wrapper .swiper-slide:nth-child(2n) .itemArea .clickHover p::before{background-color: var(--mainColor01);}
+#tab03.section .cntProjcet .swiper .swiperProject .swiper-wrapper .swiper-slide:nth-child(3n) .itemArea .clickHover p::before{background-color: var(--mainColorLightRed);}
+
+#tab03.section .cntProjcet .swiper .swiperProject .swiper-pagination{bottom: -30px; left: 0; right: 0; top: initial; margin: auto;}
+#tab03.section .cntProjcet .swiper .swiperProject .swiper-pagination-progressbar{background-color: var(--mainColorLightRed);}
+#tab03.section .cntProjcet .swiper .swiperProject .swiper-pagination-progressbar .swiper-pagination-progressbar-fill{background-color: var(--mainColor01);}
+/* #tab03.section .cntProjcet .swiper .swiperProject .swiper-wrapper .swiper-slide .projectItem b{display: inline-block; font-size: 60px; text-align: center; font-family: var(--fontFamilyTime); opacity: 0.3;} */
+/* #tab03.section .cntProjcet .swiper .swiperProject .swiper-wrapper .swiper-slide .projectItem{width: 174px; height: 260px; box-shadow: 1px 1px 1px #f1f1f1;} */
+
+/* dimmed */
+.wdh_860{width: 860px;}
+.modalScroll{height: 60vh; overflow-y: auto;}
+.modalScroll::-webkit-scrollbar{display: none;}
+.modalOverlay{display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background-color: rgba(0, 0, 0, 0.8); justify-content: center; align-items: center; z-index: 100;}
+.modalOverlay .wrapArea{}
+.modalOverlay .wrapArea .wrapInner{}
+.modalOverlay .wrapArea .wrapInner .modalCnt{width: 860px; position: relative; padding: 34px; background-color: #fff; border-radius: 24px;}
+.modalOverlay .wrapArea .wrapInner .modalCnt .modalClose{position: absolute; display: block; width: 34px; height: 34px; top: -50px; left: 0; right: 0px; margin: auto; background: #fff url("../image/ico_pop_close.png") no-repeat center / cover; background-size: 20px; border-radius: 17px; cursor: pointer;}
+.modalOverlay .wrapArea .wrapInner .modalCnt .imgBox{width: 100%;}
+.modalOverlay .wrapArea .wrapInner .modalCnt .imgBox img{width: 100%;}
+.modalOverlay .wrapArea .wrapInner .modalCnt .toolCaption{display: flex; justify-content: center; align-items: center; flex-direction: column; margin-top: 20px;}
+.modalOverlay .wrapArea .wrapInner .modalCnt .toolCaption p{font-size: 18px;}
+.modalOverlay .wrapArea .wrapInner .modalCnt .toolCaption p + p{font-size: 16px; margin-top: 8px; font-weight: 500;}
+
+/* footer */
+.footer{width: 100%; padding: 40px 0; background-color: var(--mainColorgrayScale01);}
+.footer .footerInner{display: flex; justify-content: space-around; width: 1140px; margin: 0 auto;}
+.footer .footerInner li{line-height: 30px; text-align: center; font-size: 18px; font-family: var(--fontFamilyTime);}
+
+
+@media screen and (max-width: 1240px){
+.wrapper{
+    width: 100%;
+    /* min-width: 1240px; */
+}
+.wrapper .wrap {}
+/* header */
+.header{width: 100%; display: flex; justify-content: center; margin: 0 auto;}
+.header .headerArea{position: relative; width: 1240px; height: 480px; display: flex; align-items: center;}
+.header .headerArea::before{content: ''; display: block; position: absolute; top: 0; left: 60px; width: 180px; height: 2px; background-color: var(--mainColorYellow);} 
+.header .headerArea .headerCaption{padding-left: 60px;}
+.header .headerArea .headerCaption h1{font-size: 160px; font-family: var(--fontFamilyTime);}
+.header .headerArea .headerCaption h2{font-size: 60px; color: var(--mainColor01); font-family: var(--fontFamilyTime); letter-spacing: -3px;}
+.header .headerArea .headerCaption p{margin-top: 20px; line-height: 20px; font-size: 14px; font-weight: 500;}
+.header .headerArea .polygonArea{position: absolute; width: 100%; height: 100%;}
+.header .headerArea .polygonArea .polygon01{position: absolute; bottom: 20px; right: 310px; display: inline-block; width: 140px; height: 114px; background: url("../image/polygon-01.svg") no-repeat center / cover;}
+.header .headerArea .polygonArea .polygon02{position: absolute; top: 50px; right: 0; display: inline-block; width: 188px; height: 161px; background: url("../image/polygon-02.svg") no-repeat center / cover;}
+
+/* section common */
+.section{position: relative; width: 100%; margin: 40px 0 120px 0; display: flex; justify-content: center;}
+.section + .section{margin-top: 40px;}
+.section h4.tit{font-size: 58px; text-align: center;}
+
+/* tab */
+.tabArea{margin-top: 120px; display: flex; justify-content: center; transition: top 0.5s;}
+.tabArea.fixed{position: fixed; top: 0; left: 0; right: 0; background-color: var(--mainColorgrayScale01); width: 100%; margin: auto; padding: 24px 15px; z-index: 2; transition: top 0.5s;}
+.tabArea .tabBox{display: flex;}
+.tabArea .tabBox .tabLinks{position: relative; font-size: 18px; font-weight: bold; margin: 0 80px; padding: 0 10px 8px; cursor: pointer;}
+.tabArea .tabBox .tabLinks{display: inline-block; font-weight: bold; cursor: pointer;}
+.tabArea .tabBox .tabLinks::after{content: ""; position: absolute; left: 50%; bottom: 0; width: 0; height: 2px; background-color: var(--mainColorDeepRed); transition: all .2s;}
+.tabArea .tabBox .tabLinks.active::after,
+.tabArea .tabBox .tabLinks:hover::after{left: 0; width: 100%;}
+.sticky {position: fixed; top: 0; width: 100%;}
+
+/* tab01 */
+#tab01.section{}
+#tab01.section .cntMain{width: 1140px; margin: 0 auto;}
+#tab01.section .cntMain ul{display: flex; justify-content: space-between;}
+#tab01.section .cntMain ul li{}
+#tab01.section .cntMain ul li:nth-child(1){width: 440px;}
+#tab01.section .cntMain ul li:nth-child(1) img{width: 100%;}
+#tab01.section .cntMain ul li:nth-child(2){width: calc(100% - 440px); display: flex; flex-direction: column; justify-content: center; margin-left: 40px;}
+#tab01.section .cntMain ul li:nth-child(2) h3{font-size: 24px; font-weight: bold;}
+#tab01.section .cntMain ul li:nth-child(2) p{margin-top: 60px; font-size: 18px; line-height: 36px;}
+
+#tab01.section .mainSkill{position: relative; margin-top: 120px; text-align: center;}
+#tab01.section .mainSkill .skillItems{margin-top: 40px;}
+#tab01.section .mainSkill .skillItems div{margin-top: 10px; display: flex; justify-content: center;}
+#tab01.section .mainSkill .skillItems div .slash{position: relative; display: inline-block; padding: 11px 32px; font-size: 18px; font-weight: bold; margin-right: 10px; background-color: #fff; border: 1px solid #707070; border-radius: 2px; overflow: hidden; transition: 0.3s;}
+#tab01.section .mainSkill .skillItems div .slash::before{position: absolute; content: ""; top: 50%; left: 50%; z-index: -1; width: 180px; height: 180px; transform: translate(-50%, -50%) rotate(-45deg) scaleX(0); transition: 0.3s;}
+#tab01.section .mainSkill .skillItems div .slash:nth-of-type(1n)::before{background-color: var(--mainColor01);}
+#tab01.section .mainSkill .skillItems div .slash:nth-of-type(2n)::before{background-color: var(--mainColorLightRed);}
+#tab01.section .mainSkill .skillItems div .slash:nth-of-type(3n)::before{background-color: var(--mainColorYellow);}
+#tab01.section .mainSkill .skillItems div .slash:hover{background: transparent;}
+#tab01.section .mainSkill .skillItems div .slash:hover::before{}
+#tab01.section .mainSkill .skillItems div .slash:nth-of-type(1n):hover::before{transform: translate(-50%, -50%) rotate(-45deg) scaleX(1);}
+#tab01.section .mainSkill .skillItems div .slash:nth-of-type(2n):hover::before{transform: translate(-50%, -50%) rotate(45deg) scaleX(1);}
+#tab01.section .mainSkill .skillItems div .slash:nth-of-type(3n):hover::before{top: -60%; left: 10%; transform: translate(32%, 47%) rotate(226deg) scaleX(4);}
+#tab01.section .mainSkill em{}
+
+/* tab02 */
+#tab02.section{}
+#tab02.section .cntResume{position: relative; width: 1140px; margin: 0 auto; display: flex;}
+#tab02.section .cntResume li{width: 50%;}
+#tab02.section .cntResume li h5{font-size: 24px; font-weight: bold;}
+#tab02.section .cntResume li h5 ~ h5{margin-top: 60px;}
+#tab02.section .cntResume li h5::before{content: ""; display: inline-block; width: 12px; height: 12px; background-color: var(--mainColorgrayScale02); vertical-align: 3px; margin-right: 10px; border-radius: 50%;}
+#tab02.section .cntResume li dl{margin-top: 10px;}
+#tab02.section .cntResume li dl dt{margin-top: 18px; font-size: 16px; font-weight: 500;padding-left: 18px;}
+#tab02.section .cntResume li dl dd{margin-top: 4px; padding-left: 22px; font-size: 16px; line-height: 20px;}
+#tab02.section .cntResume li.bgImg{width: 90%; position: absolute; bottom: 0; height: 645px; background: url("../image/polygon-op-02.svg") no-repeat left / contain; z-index: -1;}
+
+/* tab03 */
+#tab03.section{}
+#tab03.section .cntProjcet{position: relative; width: 1140px; margin: 0 auto;}
+#tab03.section .cntProjcet .swiper{width: 100%; margin-top: 40px; overflow: initial;}
+#tab03.section .cntProjcet .swiper .swiperProject{width: 100%; margin: 0 auto; overflow: hidden;}
+#tab03.section .cntProjcet .swiper .swiperProject .swiper-wrapper{}
+#tab03.section .cntProjcet .swiper .swiperProject .swiper-wrapper .swiper-slide{}
+#tab03.section .cntProjcet .swiper .swiperProject .swiper-wrapper .swiper-slide .itemArea{position: relative;}
+#tab03.section .cntProjcet .swiper .swiperProject .swiper-wrapper .swiper-slide .itemArea b{display: block; font-size: 60px; font-family: var(--fontFamilyTime); opacity: 0.3; text-align: center;}
+#tab03.section .cntProjcet .swiper .swiperProject .swiper-wrapper .swiper-slide .itemArea .itemCnt{position: relative; height: 260px; border-bottom: 1px solid #ccc; background-color: #fcfcfc;}
+#tab03.section .cntProjcet .swiper .swiperProject .swiper-wrapper .swiper-slide .itemArea .itemCnt::before{content: ""; position: absolute; width: 30px; height: 4px; top: 0; left: 20px;}
+#tab03.section .cntProjcet .swiper .swiperProject .swiper-wrapper .swiper-slide .itemArea .itemCnt p.click::before{position: absolute; top: -2px; left: 0; width: 20px; background-color: rgb(44, 65, 14);}
+#tab03.section .cntProjcet .swiper .swiperProject .swiper-wrapper .swiper-slide:nth-child(1n) .itemArea .itemCnt::before{background-color: var(--mainColorYellow);}
+#tab03.section .cntProjcet .swiper .swiperProject .swiper-wrapper .swiper-slide:nth-child(2n) .itemArea .itemCnt::before{background-color: var(--mainColor01);}
+#tab03.section .cntProjcet .swiper .swiperProject .swiper-wrapper .swiper-slide:nth-child(3n) .itemArea .itemCnt::before{background-color: var(--mainColorLightRed);}
+#tab03.section .cntProjcet .swiper .swiperProject .swiper-wrapper .swiper-slide .itemArea .itemCnt .imgBox{display: flex; align-items: center; width: 130px; height: 80px; min-height: 80px; margin: 0 auto; padding-top: 60px;}
+#tab03.section .cntProjcet .swiper .swiperProject .swiper-wrapper .swiper-slide .itemArea .itemCnt .imgBox img{width: 100%;}
+#tab03.section .cntProjcet .swiper .swiperProject .swiper-wrapper .swiper-slide .itemArea .itemCnt p{font-size: 16px; margin-top: 20px; text-align: center;}
+
+#tab03.section .cntProjcet .swiper .swiperProject .swiper-wrapper .swiper-slide .itemArea .clickHover{position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.7);display: flex; justify-content: center; align-items: center; opacity: 0; transition: all 0.3s; cursor: pointer;}
+#tab03.section .cntProjcet .swiper .swiperProject .swiper-wrapper .swiper-slide .itemArea .clickHover:hover{opacity: 1;}
+#tab03.section .cntProjcet .swiper .swiperProject .swiper-wrapper .swiper-slide .itemArea .clickHover p{position: relative; font-size: 24px; font-weight: bold; font-family: var(--fontFamilyTime); color: #fff;}
+#tab03.section .cntProjcet .swiper .swiperProject .swiper-wrapper .swiper-slide .itemArea .clickHover p::before{content: ""; position: absolute; top: -5px; left: 0; width: 15px; height: 3px;}
+#tab03.section .cntProjcet .swiper .swiperProject .swiper-wrapper .swiper-slide:nth-child(1n) .itemArea .clickHover p::before{background-color: var(--mainColorYellow);}
+#tab03.section .cntProjcet .swiper .swiperProject .swiper-wrapper .swiper-slide:nth-child(2n) .itemArea .clickHover p::before{background-color: var(--mainColor01);}
+#tab03.section .cntProjcet .swiper .swiperProject .swiper-wrapper .swiper-slide:nth-child(3n) .itemArea .clickHover p::before{background-color: var(--mainColorLightRed);}
+
+#tab03.section .cntProjcet .swiper .swiperProject .swiper-pagination{bottom: -30px; left: 0; right: 0; top: initial; margin: auto;}
+#tab03.section .cntProjcet .swiper .swiperProject .swiper-pagination-progressbar{background-color: var(--mainColorLightRed);}
+#tab03.section .cntProjcet .swiper .swiperProject .swiper-pagination-progressbar .swiper-pagination-progressbar-fill{background-color: var(--mainColor01);}
+/* #tab03.section .cntProjcet .swiper .swiperProject .swiper-wrapper .swiper-slide .projectItem b{display: inline-block; font-size: 60px; text-align: center; font-family: var(--fontFamilyTime); opacity: 0.3;} */
+/* #tab03.section .cntProjcet .swiper .swiperProject .swiper-wrapper .swiper-slide .projectItem{width: 174px; height: 260px; box-shadow: 1px 1px 1px #f1f1f1;} */
+
+/* footer */
+.footer{width: 100%; padding: 40px 0; background-color: var(--mainColorgrayScale01);}
+.footer .footerInner{display: flex; justify-content: space-around; width: 1140px; margin: 0 auto;}
+.footer .footerInner li{line-height: 30px; text-align: center; font-size: 18px; font-family: var(--fontFamilyTime);}
+
+}
+
+@media screen and (max-width: 480px){
+        /* section common */
+        .wrapper {
+            width: 100%;
+            box-sizing: border-box;
+            /* min-width: 1240px; */
+        }
+    .wrapper .wrap{padding: 0 16px;}
+    .section h4.tit{font-size: 36px; text-align: center;}
+    /* header */
+    .header{}
+    .header .headerArea{width: 100%; height: 375px; justify-content: center; text-align: center;}
+    .header .headerArea::before{left: 0; right: 0; width: 90%; margin: auto;}
+    .header .headerArea .headerCaption{padding: 0;}   
+    .header .headerArea .headerCaption h1{font-size: 100px;}
+    .header .headerArea .headerCaption h2{font-size: 32px; letter-spacing: -0.27px;}
+    .header .headerArea .headerCaption p{font-size: 12px;}
+    .header .headerArea .headerCaption p br{display: none;}
+    .header .headerArea .polygonArea{}
+    .header .headerArea .polygonArea .polygon01{width: 100px; height: 82px; bottom: 5px; right: 0;}
+    .header .headerArea .polygonArea .polygon02{display: none;}
+
+    /* tab */
+    .tabArea{margin-top: 40px;}
+    .tabArea.fixed{}
+    .tabArea .tabBox{width: 100%; justify-content: space-between;}
+    .tabArea .tabBox .tabLinks{margin: 0;}
+    .tabArea .tabBox .tabLinks::after{}
+    .tabArea .tabBox .tabLinks.active::after,
+    .tabArea .tabBox .tabLinks:hover::after{}
+    .sticky{}
+
+    /* tab01 */
+    #tab01.section{}
+    #tab01.section .cntMain{width: 100%;}
+    #tab01.section .cntMain ul{flex-direction: column; flex-wrap: wrap;}
+    #tab01.section .cntMain ul li{}
+    #tab01.section .cntMain ul li:nth-child(1){width: 100%;}
+    #tab01.section .cntMain ul li:nth-child(1) img{}
+    #tab01.section .cntMain ul li:nth-child(2){width: 100%; margin: 40px auto 0;}
+    #tab01.section .cntMain ul li:nth-child(2) h3{font-size: 20px;}
+    #tab01.section .cntMain ul li:nth-child(2) p{margin-top: 20px; line-height: 24px; font-size: 14px;}
+    #tab01.section .cntMain ul li:nth-child(2) p br{display: none;}
+
+    #tab01.section .mainSkill{margin-top: 100px;}
+    #tab01.section .mainSkill .skillItems{}
+    #tab01.section .mainSkill .skillItems div{flex-wrap: wrap; margin: 0;}
+    #tab01.section .mainSkill .skillItems div .slash{padding: 6px 16px; font-size: 14px; margin: 0 10px 10px 0;}
+    #tab01.section .mainSkill .skillItems div .slash::before{}
+    #tab01.section .mainSkill .skillItems div .slash:nth-of-type(1n)::before{}
+    #tab01.section .mainSkill .skillItems div .slash:nth-of-type(2n)::before{}
+    #tab01.section .mainSkill .skillItems div .slash:nth-of-type(3n)::before{}
+    #tab01.section .mainSkill .skillItems div .slash:hover{}
+    #tab01.section .mainSkill .skillItems div .slash:hover::before{}
+    #tab01.section .mainSkill .skillItems div .slash:nth-of-type(1n):hover::before{}
+    #tab01.section .mainSkill .skillItems div .slash:nth-of-type(2n):hover::before{}
+    #tab01.section .mainSkill .skillItems div .slash:nth-of-type(3n):hover::before{}
+    #tab01.section .mainSkill em{width: 240px; height: 195px;}
+    
+    /* tab02 */
+    #tab02.section .cntResume{width: 100%; flex-direction: column; gap: 40px;}
+    #tab02.section .cntResume li{width: 100%;}
+    #tab02.section .cntResume li.bgImg{}
+
+    /* tab03 */
+    #tab03.section .cntProjcet{width: 100%;}
+   
+    /* footer */
+    .footer{}
+    .footer .footerInner{width: 100%;}
+    .footer .footerInner li{}
+    .footer .footerInner li.contact{display: none;}
+
+    /* dimmed */
+    .wdh_full{width: 100%;}
+    .modalScroll{height: calc(100vh - 140px); overflow-y: auto;}
+    .modalScroll::-webkit-scrollbar{display: none;}
+    .modalOverlay{display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background-color: rgba(0, 0, 0, 0.8); justify-content: center; align-items: center; z-index: 100;}
+    .modalOverlay .wrapArea{}
+    .modalOverlay .wrapArea .wrapInner{}
+    .modalOverlay .wrapArea .wrapInner .modalCnt{position: relative; padding: 40px 10px 0; width: 100%; height: 100vh; background-color: #fff; border-radius: 0; box-sizing: border-box;}
+    .modalOverlay .wrapArea .wrapInner .modalCnt .modalClose{position: absolute; display: block; width: 34px; height: 34px; top: 2px; left: 0; right: 0px; margin: auto; background: #e7e7e7 url("../image/ico_pop_close.png") no-repeat center / cover; background-size: 20px; border-radius: 17px; cursor: pointer;}
+    .modalOverlay .wrapArea .wrapInner .modalCnt .imgBox{width: 100%;}
+    .modalOverlay .wrapArea .wrapInner .modalCnt .imgBox img{width: 100%;}
+    .modalOverlay .wrapArea .wrapInner .modalCnt .toolCaption{display: flex; justify-content: center; align-items: center; flex-direction: column; margin-top: 20px;}
+    .modalOverlay .wrapArea .wrapInner .modalCnt .toolCaption p{font-size: 18px;}
+    .modalOverlay .wrapArea .wrapInner .modalCnt .toolCaption p + p{font-size: 16px; margin-top: 8px; font-weight: 500;}
+    
+}
+
+@media screen and (max-width: 360px) {
+    /* tab01 */
+    #tab01.section .mainSkill em{width: 240px; height: 195px;}
+    
+    /* tab03 */
+    #tab03.section{}
+    #tab03.section .cntProjcet{}
+    #tab03.section .cntProjcet .swiper{}
+    #tab03.section .cntProjcet .swiper .swiperProject{}
+    #tab03.section .cntProjcet .swiper .swiperProject .swiper-wrapper{}
+    #tab03.section .cntProjcet .swiper .swiperProject .swiper-wrapper .swiper-slide{width: 159px;}
+    #tab03.section .cntProjcet .swiper .swiperProject .swiper-wrapper .swiper-slide .itemArea{}
+    #tab03.section .cntProjcet .swiper .swiperProject .swiper-wrapper .swiper-slide .itemArea b{}
+    #tab03.section .cntProjcet .swiper .swiperProject .swiper-wrapper .swiper-slide .itemArea .itemCnt{}
+    #tab03.section .cntProjcet .swiper .swiperProject .swiper-wrapper .swiper-slide .itemArea .itemCnt::before{}
+    #tab03.section .cntProjcet .swiper .swiperProject .swiper-wrapper .swiper-slide .itemArea .itemCnt p.click::before{}
+    #tab03.section .cntProjcet .swiper .swiperProject .swiper-wrapper .swiper-slide:nth-child(1n) .itemArea .itemCnt::before{}
+    #tab03.section .cntProjcet .swiper .swiperProject .swiper-wrapper .swiper-slide:nth-child(2n) .itemArea .itemCnt::before{}
+    #tab03.section .cntProjcet .swiper .swiperProject .swiper-wrapper .swiper-slide:nth-child(3n) .itemArea .itemCnt::before{}
+    #tab03.section .cntProjcet .swiper .swiperProject .swiper-wrapper .swiper-slide .itemArea .itemCnt .imgBox{}
+    #tab03.section .cntProjcet .swiper .swiperProject .swiper-wrapper .swiper-slide .itemArea .itemCnt .imgBox img{}
+    #tab03.section .cntProjcet .swiper .swiperProject .swiper-wrapper .swiper-slide .itemArea .itemCnt p{}
+
+    #tab03.section .cntProjcet .swiper .swiperProject .swiper-wrapper .swiper-slide .itemArea .clickHover{}
+    #tab03.section .cntProjcet .swiper .swiperProject .swiper-wrapper .swiper-slide .itemArea .clickHover:hover{}
+    #tab03.section .cntProjcet .swiper .swiperProject .swiper-wrapper .swiper-slide .itemArea .clickHover p{}
+    #tab03.section .cntProjcet .swiper .swiperProject .swiper-wrapper .swiper-slide .itemArea .clickHover p::before{}
+    #tab03.section .cntProjcet .swiper .swiperProject .swiper-wrapper .swiper-slide:nth-child(1n) .itemArea .clickHover p::before{}
+    #tab03.section .cntProjcet .swiper .swiperProject .swiper-wrapper .swiper-slide:nth-child(2n) .itemArea .clickHover p::before{}
+    #tab03.section .cntProjcet .swiper .swiperProject .swiper-wrapper .swiper-slide:nth-child(3n) .itemArea .clickHover p::before{}
+
+    #tab03.section .cntProjcet .swiper .swiperProject .swiper-pagination{}
+    #tab03.section .cntProjcet .swiper .swiperProject .swiper-pagination-progressbar{}
+    #tab03.section .cntProjcet .swiper .swiperProject .swiper-pagination-progressbar .swiper-pagination-progressbar-fill{}
+    /* #tab03.section .cntProjcet .swiper .swiperProject .swiper-wrapper .swiper-slide .projectItem b{display: inline-block; font-size: 60px; text-align: center; font-family: var(--fontFamilyTime); opacity: 0.3;} */
+    /* #tab03.section .cntProjcet .swiper .swiperProject .swiper-wrapper .swiper-slide .projectItem{width: 174px; height: 260px; box-shadow: 1px 1px 1px #f1f1f1;} */
+}
+
+
+
